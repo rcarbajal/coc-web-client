@@ -1,0 +1,40 @@
+<h1>Clan Overview</h1>
+<p><strong>Location:</strong> {{clan?.location.name}}</p>
+<p><strong>Level:</strong> {{clan?.clanLevel}}</p>
+<p><strong>Points:</strong> {{clan?.clanPoints}}</p>
+<p><strong>War record:</strong> {{clan?.warWins}}-{{clan?.warLosses}}-{{clan?.warTies}} ({{clan?.warLeague.name}})</p>
+<p id="clan_description"><strong>Description:</strong><br />
+    "{{clan?.description}}"</p>
+
+<br />
+<h1>Top {{TOP_MEMBER_COUNT}} Members</h1>
+<mat-table [dataSource]="topMembers">
+    <ng-container matColumnDef="member_number">
+        <mat-cell *matCellDef="let member; let i = index" data-label="Member Number">{{i + 1}}.</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="member_icon">
+        <mat-cell *matCellDef="let member" data-label="Member Icon">
+            <img class="member_icon" src="{{member.league.iconUrls.tiny}}" />&nbsp;&nbsp;{{member.name}} ({{Member.translateRole(member.role)}})
+        </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="member_exp">
+        <mat-cell *matCellDef="let member" data-label="Member Experience"><strong>Experience level:</strong>&nbsp;{{member.expLevel}}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="member_trophies">
+        <mat-cell *matCellDef="let member" data-label="Member Trophies"><strong>Trophies:</strong>&nbsp;{{member.trophies}}</mat-cell>
+    </ng-container>
+    <mat-row *matRowDef="let member; columns: displayColumns"></mat-row>
+</mat-table>
+
+<br />
+<h1>Latest War</h1>
+
+<span *ngIf="currentWar">
+    War state: {{currentWar.state}}<br />
+</span><br />
+
+<span *ngIf="lastWar">
+    Last war: {{lastWar.result}}<br />
+    {{lastWar.teamSize}} vs {{lastWar.teamSize}}<br />
+    {{lastWar.clan.stars}}({{lastWar.clan.destructionPercentage}}) - {{lastWar.opponent.stars}}({{lastWar.opponent.destructionPercentage}})
+</span>

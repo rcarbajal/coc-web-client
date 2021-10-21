@@ -1,1 +1,39 @@
-/* You can add global styles to this file, and also import other style files */
+*, html { margin: 0px; padding: 0px; font-family: arial, verdana, sans-serif; font-size: 14px; color: #5B3925; position: relative; }
+body { text-align: center; background-color: #FFFCE4; }
+header { text-align: left; padding: 10px 20px 0 20px; background-color: #F0D5A9; }
+div#header_container { width: 100%; }
+
+/* header */
+h1#clan_name { float: left; margin-top: 36px; margin-left: 20px; font-size: 26px; }
+p#clan_tag { font-size: 12px; line-height: 0.6em; }
+div#badges { float: right; text-align: right; }
+img#clan_badge { width: 60px; }
+img.icon_badges { width: 40px; }
+a.nav_link:link, a.nav_link:visited, a.nav_link:active { color: #4A148C; font-size: 12pt; text-decoration: none; }
+a.nav_link:hover { color: #FF8F00; text-decoration: underline; }
+div.nav_spacer { display: inline; border-right: 1px solid #5B3925; top: -1px; }
+
+/* main content */
+#content { text-align: left; display: flex; padding: 20px; }
+#content h1 { text-decoration: underline; }
+#content p#clan_description { line-height: 1.5em; }
+#content p { line-height: 0.5em; }
+#content .member_icon { height: 20px; }
+
+mat-table { width: 60%; }
+.mat-column-member_number { flex: 0 0 40px; }
+mat-row:nth-child(even) { background-color: #FFFCE4; }
+mat-row:nth-child(odd) { background-color: #F0D5A9; }
+
+.left { float: left; }
+.right { float: right; }
+.clear { clear: both; }
+.clearfix:before, .clearfix:after { content: ""; display: table; }
+.clearfix:after { clear: both; }
+.clearfix { zoom: 1; }
+
+@media screen and (max-width: 767px) {
+    mat-table { width: 100%; flex-flow: column wrap; }
+    mat-cell { flex-flow: column wrap; text-align: center; }
+    .mat-column-member_number { flex-flow: row nowrap; text-align: left; }
+}

@@ -1,0 +1,24 @@
+<div id="header_container" class="clearfix">
+    <a href="/"><img class="left" src="assets/images/coc_logo_2013_sm.png" /></a>
+    <h1 id="clan_name">
+        {{clan?.name}}
+        <p id="clan_tag">{{clan?.tag}}</p>
+    </h1>
+    <div id="badges">
+        <img class="icon_badges" *ngFor="let label of clan?.labels" src="{{label.iconUrls.small}}" alt="{{label.name}}" />
+        &nbsp;&nbsp;
+        <img id="clan_badge" src="{{clan?.badgeUrls.small}}" />
+        <br />
+        <div style="width: 100%; text-align: right;">
+            <a class="nav_link" href="/">Dashboard</a>
+            &nbsp;&nbsp;
+            <div class="nav_spacer">&nbsp;</div>
+            &nbsp;&nbsp;
+            <a class="nav_link" href="#">Members</a>
+            &nbsp;&nbsp;
+            <div class="nav_spacer">&nbsp;</div>
+            &nbsp;&nbsp;
+            <a class="nav_link" href="#">War Log</a>
+        </div>
+    </div>
+</div>
